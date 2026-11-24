@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <!-- ===== Meta tags básicos ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Nosotros | VerdeAndes Agro</title>
+  <meta name="description" content="Conoce la historia, misión, visión, valores y equipo de VerdeAndes Agro S.A.C.">
+  <meta name="keywords" content="VerdeAndes, empresa agrícola Arequipa, misión, visión, organigrama">
+  <meta name="author" content="Grupo 06 - Hojas de Estilo en Cascada Avanzado">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1b4d2b">
+  <!-- Open Graph para redes sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_PE">
+  <meta property="og:title" content="Nosotros | VerdeAndes Agro">
+  <meta property="og:description" content="Conoce la historia, misión, visión, valores y equipo de VerdeAndes Agro S.A.C.">
+  <meta property="og:image" content="img/banners/hero-campo.jpg">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+
+  <!-- ===== Tipografías externas (Google Fonts) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap">
+  <!-- ===== Iconos vectoriales (Font Awesome) ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- ===== 1. CSS tradicional (10 % incrustación externa) ===== -->
+  <link rel="stylesheet" href="css/estilos.css?v=6">
+  <!-- ===== 2. Preprocesador LESS (15 % less/estilos.less compilado) ===== -->
+  <link rel="stylesheet" href="css/estilos-less.css?v=6">
+  <!-- ===== 3. Preprocesador SASS (15 % scss/estilos.scss compilado) ===== -->
+  <link rel="stylesheet" href="css/estilos-sass.css?v=6">
+  <!-- ===== 4. Framework Tailwind CSS (60 % enlace externo CSS compilado, 0 % JS) ===== -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="css/tailwind.css?v=6">
+</head>
+<body id="inicio" class="font-texto">
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido principal</a>
+
+  <!-- ===== Barra superior de contacto ===== -->
+  <div class="barra-superior">
+    <div class="contenedor flex flex-wrap items-center justify-between gap-2 py-2">
+      <ul class="flex flex-wrap items-center gap-x-5 gap-y-1 list-none m-0 p-0">
+        <li><a href="tel:+5154285430"><i class="fa-solid fa-phone mr-1" aria-hidden="true"></i> (054) 285-430</a></li>
+        <li><a href="mailto:ventas@verdeandesagro.pe"><i class="fa-solid fa-envelope mr-1" aria-hidden="true"></i> ventas@verdeandesagro.pe</a></li>
+        <li class="ocultar-movil"><i class="fa-solid fa-clock mr-1" aria-hidden="true"></i> Lun - Sáb: 7:00 a. m. - 6:00 p. m.</li>
+      </ul>
+      <ul class="flex items-center gap-4 list-none m-0 p-0" aria-label="Redes sociales">
+        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+        <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== Cabecera con logo y menú de opciones ===== -->
+  <header class="cabecera">
+    <div class="cabecera__interior">
+      <a class="logo" href="index.html" aria-label="VerdeAndes Agro - Ir al inicio">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" class="shrink-0 transition-transform duration-500 hover:scale-105">
+          <defs>
+            <linearGradient id="cielo-h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9c46a"/><stop offset="1" stop-color="#f6e3a8"/></linearGradient>
+            <linearGradient id="hoja-h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4caf50"/><stop offset="1" stop-color="#1b4d2b"/></linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="30" fill="url(#cielo-h)" stroke="#1b4d2b" stroke-width="3"/>
+          <path d="M8 44 L26 18 L32 24 L36 20 L56 44 Z" fill="#8b5e34"/>
+          <path d="M22 24 L26 18 L32 24 L36 20 L40 25 L35 27 L31 25 L27 28 Z" fill="#ffffff"/>
+          <path d="M4 44 Q32 36 60 44 L60 50 Q32 42 4 50 Z" fill="#2f7d32"/>
+          <path d="M5 50 Q32 43 59 50 A30 30 0 0 1 5 50 Z" fill="#1b4d2b"/>
+          <path d="M40 40 C40 28 48 22 58 20 C58 32 52 40 40 40 Z" fill="url(#hoja-h)" stroke="#faf7f0" stroke-width="1.5"/>
+          <path d="M41 39 C46 33 50 28 56 22" fill="none" stroke="#faf7f0" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <span class="logo__texto">VerdeAndes <small>AGRO S.A.C.</small></span>
+      </a>
+
+      <nav class="flex items-center gap-3" aria-label="Menú principal">
+        <button class="boton-menu" type="button" popovertarget="menu-principal" aria-controls="menu-principal">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i><span>Menú</span>
+        </button>
+        <ul id="menu-principal" class="menu-principal" popover="auto">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html" aria-current="page">Nosotros</a></li>
+          <li class="tiene-submenu">
+            <button class="submenu-boton" type="button" aria-expanded="false" aria-controls="submenu-productos">
+              Productos <i class="fa-solid fa-chevron-down text-xs ml-1" aria-hidden="true"></i>
+            </button>
+            <ul id="submenu-productos" class="submenu">
+              <li><a href="abonos.html"><span><i class="fa-solid fa-sack-xmark w-5 text-agro-tierra" aria-hidden="true"></i> Abonos</span></a></li>
+              <li><a href="semillas.html"><span><i class="fa-solid fa-seedling w-5 text-agro-tierra" aria-hidden="true"></i> Semillas</span></a></li>
+              <li><a href="organicos.html"><span><i class="fa-solid fa-worm w-5 text-agro-tierra" aria-hidden="true"></i> Materiales orgánicos</span></a></li>
+              <li><a href="inorganicos.html"><span><i class="fa-solid fa-flask w-5 text-agro-tierra" aria-hidden="true"></i> Materiales inorgánicos</span></a></li>
+              <li><a href="silvicultura.html"><span><i class="fa-solid fa-tree w-5 text-agro-tierra" aria-hidden="true"></i> Silvicultura</span></a></li>
+              <li><a href="catalogo.html"><span><i class="fa-solid fa-table-list w-5 text-agro-tierra" aria-hidden="true"></i> Catálogo y precios</span></a></li>
+            </ul>
+          </li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li class="tiene-submenu">
+            <button class="submenu-boton" type="button" aria-expanded="false" aria-controls="submenu-atencion">
+              Atención <i class="fa-solid fa-chevron-down text-xs ml-1" aria-hidden="true"></i>
+            </button>
+            <ul id="submenu-atencion" class="submenu">
+              <li><a href="contacto.html"><span><i class="fa-solid fa-envelope w-5 text-agro-tierra" aria-hidden="true"></i> Contacto</span></a></li>
+              <li><a href="clientes.html"><span><i class="fa-solid fa-user-plus w-5 text-agro-tierra" aria-hidden="true"></i> Registro de clientes</span></a></li>
+              <li><a href="reclamos.html"><span><i class="fa-solid fa-book w-5 text-agro-tierra" aria-hidden="true"></i> Libro de reclamaciones</span></a></li>
+              <li><a href="preguntas.html"><span><i class="fa-solid fa-circle-question w-5 text-agro-tierra" aria-hidden="true"></i> Preguntas frecuentes</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="contacto.html" class="btn-agro hidden md:inline-flex !py-2 !px-5">
+        <i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i> Cotizar
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== Marquesina de novedades (HTML puro) ===== -->
+  <div class="marquesina" role="region" aria-label="Novedades">
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+      <span><i class="fa-solid fa-seedling"></i> Campaña de siembra 2026-2027: semillas certificadas de quinua y maíz con 15% de descuento.</span>
+      <span><i class="fa-solid fa-truck"></i> Envíos gratuitos a todo Arequipa por compras mayores a S/ 500.</span>
+      <span><i class="fa-solid fa-tree"></i> Programa "Un plantón por cada saco": reforestamos el sur del Perú contigo.</span>
+      <span><i class="fa-solid fa-flask-vial"></i> Análisis de suelo con resultados en 72 horas.</span>
+    </marquee>
+  </div>
+
+  <main id="contenido">
+    <!-- ===== Banner de la página ===== -->
+    <section class="banner-pagina banner-pagina--nosotros">
+      <div class="contenedor">
+        <h1 class="animate-aparecer">Quiénes somos</h1>
+        <p class="max-w-2xl mx-auto mb-4 opacity-90 animate-aparecer-lento">Una empresa arequipeña comprometida con la agricultura sostenible y la reforestación del sur del Perú.</p>
+        <nav aria-label="Ruta de navegación">
+          <ol class="migas">
+            <li><a href="index.html">Inicio</a></li><li aria-current="page">Nosotros</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ===== Historia ===== -->
+    <section class="py-20">
+      <div class="contenedor grid gap-12 lg:grid-cols-2 items-center">
+        <div>
+          <p class="subtitulo">Nuestra historia</p>
+          <h2 class="titulo-seccion">Raíces en el valle del Chili</h2>
+          <p><strong>VerdeAndes Agro S.A.C.</strong> nació en 2012 como una pequeña tienda de insumos agrícolas en Cerro Colorado, Arequipa. Hoy somos un proveedor integral de <mark>abonos, semillas, materiales orgánicos, materiales inorgánicos y plantones forestales</mark>, con presencia en ocho provincias del sur del país.</p>
+          <p>Trabajamos de la mano con pequeños y medianos productores, asociaciones agrarias, comunidades campesinas y empresas agroexportadoras, brindando no solo productos sino también <strong>conocimiento técnico</strong> para mejorar la productividad cuidando el suelo y el agua.</p>
+          <div class="grid grid-cols-3 gap-3 mt-6">
+            <img src="img/miniaturas/hero-campo.jpg" alt="Valle de Chilina en Arequipa" class="rounded-xl h-28 w-full object-cover shadow">
+            <img src="img/miniaturas/equipo.jpg" alt="Agricultores y técnicos en campo" class="rounded-xl h-28 w-full object-cover shadow">
+            <img src="img/miniaturas/silvicultura.jpg" alt="Vivero forestal" class="rounded-xl h-28 w-full object-cover shadow">
+          </div>
+        </div>
+        <img src="img/miniaturas/invernadero.jpg" alt="Campos de cultivo de hortalizas de VerdeAndes" class="rounded-3xl shadow-agro w-full">
+      </div>
+    </section>
+
+    <!-- ===== Misión, visión y valores ===== -->
+    <section class="py-20 bg-white">
+      <div class="contenedor">
+        <div class="grid gap-6 md:grid-cols-2">
+          <article class="rounded-3xl p-8 text-white shadow-agro" style="background:linear-gradient(135deg,#1b4d2b,#2f7d32)">
+            <i class="fa-solid fa-bullseye text-4xl text-agro-trigo mb-4"></i>
+            <h2 class="text-white mt-0" style="color:#fff">Misión</h2>
+            <p class="m-0">Proveer insumos agrícolas y forestales de calidad, acompañados de asesoría técnica especializada, para que los productores del sur del Perú aumenten su productividad de forma rentable y sostenible.</p>
+          </article>
+          <article class="rounded-3xl p-8 shadow-agro" style="background:linear-gradient(135deg,#e9c46a,#f6e3a8)">
+            <i class="fa-solid fa-eye text-4xl text-agro-oscuro mb-4"></i>
+            <h2 class="mt-0">Visión</h2>
+            <p class="m-0">Ser al 2030 la empresa líder del sur peruano en soluciones agrícolas y de reforestación, reconocida por su innovación, su compromiso ambiental y el desarrollo de las comunidades rurales.</p>
+          </article>
+        </div>
+
+        <h2 class="titulo-seccion centrado text-center block mt-16 mb-10">Nuestros valores</h2>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="text-center p-6 rounded-2xl border-2 border-agro-claro transition duration-300 hover:bg-agro-verde hover:text-white hover:-translate-y-2 group">
+            <i class="fa-solid fa-handshake text-3xl text-agro-verde group-hover:text-agro-trigo transition-colors"></i><h3 class="group-hover:text-white">Confianza</h3><p class="text-sm m-0">Relaciones de largo plazo con cada productor.</p></div>
+          <div class="text-center p-6 rounded-2xl border-2 border-agro-claro transition duration-300 hover:bg-agro-verde hover:text-white hover:-translate-y-2 group">
+            <i class="fa-solid fa-earth-americas text-3xl text-agro-verde group-hover:text-agro-trigo transition-colors"></i><h3 class="group-hover:text-white">Sostenibilidad</h3><p class="text-sm m-0">Cuidamos el suelo, el agua y los bosques.</p></div>
+          <div class="text-center p-6 rounded-2xl border-2 border-agro-claro transition duration-300 hover:bg-agro-verde hover:text-white hover:-translate-y-2 group">
+            <i class="fa-solid fa-lightbulb text-3xl text-agro-verde group-hover:text-agro-trigo transition-colors"></i><h3 class="group-hover:text-white">Innovación</h3><p class="text-sm m-0">Tecnología aplicada al campo andino.</p></div>
+          <div class="text-center p-6 rounded-2xl border-2 border-agro-claro transition duration-300 hover:bg-agro-verde hover:text-white hover:-translate-y-2 group">
+            <i class="fa-solid fa-people-group text-3xl text-agro-verde group-hover:text-agro-trigo transition-colors"></i><h3 class="group-hover:text-white">Compromiso social</h3><p class="text-sm m-0">Capacitamos gratis a comunidades rurales.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Línea de tiempo (SASS) ===== -->
+    <section class="py-20">
+      <div class="contenedor">
+        <header class="text-center mb-14"><p class="subtitulo">Trayectoria</p><h2 class="titulo-seccion">Hitos de VerdeAndes</h2></header>
+        <div class="linea-tiempo">
+          <div class="linea-tiempo__item revelar"><span class="linea-tiempo__anio">2012</span><h3 class="text-lg my-1">Fundación</h3><p class="text-sm m-0">Abrimos la primera tienda de insumos en Cerro Colorado.</p></div>
+          <div class="linea-tiempo__item revelar"><span class="linea-tiempo__anio">2015</span><h3 class="text-lg my-1">Línea orgánica</h3><p class="text-sm m-0">Iniciamos la producción propia de humus de lombriz y compost.</p></div>
+          <div class="linea-tiempo__item revelar"><span class="linea-tiempo__anio">2018</span><h3 class="text-lg my-1">Vivero forestal</h3><p class="text-sm m-0">Inauguramos el vivero de especies nativas en Chiguata.</p></div>
+          <div class="linea-tiempo__item revelar"><span class="linea-tiempo__anio">2022</span><h3 class="text-lg my-1">Laboratorio de suelos</h3><p class="text-sm m-0">Análisis de suelo y agua con resultados en 72 horas.</p></div>
+          <div class="linea-tiempo__item revelar"><span class="linea-tiempo__anio">2026</span><h3 class="text-lg my-1">Transformación digital</h3><p class="text-sm m-0">Lanzamos nuestra plataforma web y catálogo en línea.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Organigrama (Flexbox) ===== -->
+    <section class="py-20 bg-white">
+      <div class="contenedor">
+        <header class="text-center mb-12"><p class="subtitulo">Organización</p><h2 class="titulo-seccion">Organigrama</h2></header>
+        <div class="flex flex-col items-center gap-6 text-center text-sm">
+          <div class="px-6 py-3 rounded-xl bg-agro-oscuro text-white font-semibold shadow-agro" style="background:#1b4d2b">Junta General de Accionistas</div>
+          <i class="fa-solid fa-arrow-down text-agro-tierra"></i>
+          <div class="px-6 py-3 rounded-xl bg-agro-verde text-white font-semibold shadow-agro">Gerencia General</div>
+          <i class="fa-solid fa-arrow-down text-agro-tierra"></i>
+          <div class="grid w-full gap-4 grid-cols-2 lg:grid-cols-5">
+            <div class="p-4 rounded-xl bg-agro-trigo/40 border border-agro-trigo"><strong class="block">Comercial y Ventas</strong>Tiendas, cotizaciones y crédito</div>
+            <div class="p-4 rounded-xl bg-agro-trigo/40 border border-agro-trigo"><strong class="block">Asistencia Técnica</strong>Agrónomos de campo</div>
+            <div class="p-4 rounded-xl bg-agro-trigo/40 border border-agro-trigo"><strong class="block">Producción Orgánica</strong>Compost, humus y bioles</div>
+            <div class="p-4 rounded-xl bg-agro-trigo/40 border border-agro-trigo"><strong class="block">Vivero Forestal</strong>Plantones y reforestación</div>
+            <div class="p-4 rounded-xl bg-agro-trigo/40 border border-agro-trigo col-span-2 lg:col-span-1"><strong class="block">Administración y Logística</strong>Almacén, reparto, TI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Equipo (SASS .miembro) ===== -->
+    <section class="py-20">
+      <div class="contenedor">
+        <header class="text-center mb-12"><p class="subtitulo">Equipo</p><h2 class="titulo-seccion">Personas que hacen crecer el campo</h2></header>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="miembro"><img src="img/miniaturas/equipo.jpg" alt="Ing. Carlos Torres en campo" class="w-full h-36 object-cover rounded-xl mb-4"><div class="miembro__avatar">CT</div><h3 class="my-1">Ing. Carlos Torres</h3><p class="text-agro-tierra text-sm font-semibold m-0">Gerente General</p><p class="text-sm">Ingeniero agrónomo UNSA, 20 años en el sector.</p></article>
+          <article class="miembro"><img src="img/miniaturas/servicios.jpg" alt="Ing. Lucía Huamán en muestreo de suelo" class="w-full h-36 object-cover rounded-xl mb-4"><div class="miembro__avatar">LH</div><h3 class="my-1">Ing. Lucía Huamán</h3><p class="text-agro-tierra text-sm font-semibold m-0">Jefa de Asistencia Técnica</p><p class="text-sm">Especialista en nutrición vegetal y fertirriego.</p></article>
+          <article class="miembro"><img src="img/miniaturas/silvicultura.jpg" alt="Ing. Miguel Condori en vivero forestal" class="w-full h-36 object-cover rounded-xl mb-4"><div class="miembro__avatar">MC</div><h3 class="my-1">Ing. Miguel Condori</h3><p class="text-agro-tierra text-sm font-semibold m-0">Jefe de Vivero Forestal</p><p class="text-sm">Ingeniero forestal, experto en especies nativas.</p></article>
+          <article class="miembro"><img src="img/miniaturas/semillas.jpg" alt="Lic. Ana Paredes en área comercial" class="w-full h-36 object-cover rounded-xl mb-4"><div class="miembro__avatar">AP</div><h3 class="my-1">Lic. Ana Paredes</h3><p class="text-agro-tierra text-sm font-semibold m-0">Jefa Comercial</p><p class="text-sm">Atención a asociaciones y agroexportadoras.</p></article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Pie de página ===== -->
+  <footer class="pie">
+    <div class="contenedor grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <section>
+        <a class="logo mb-4" href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" class="shrink-0">
+            <circle cx="32" cy="32" r="30" fill="#e9c46a" stroke="#1b4d2b" stroke-width="3"/>
+            <path d="M8 44 L26 18 L32 24 L36 20 L56 44 Z" fill="#8b5e34"/>
+            <path d="M22 24 L26 18 L32 24 L36 20 L40 25 L35 27 L31 25 L27 28 Z" fill="#ffffff"/>
+            <path d="M4 44 Q32 36 60 44 L60 50 Q32 42 4 50 Z" fill="#2f7d32"/>
+            <path d="M5 50 Q32 43 59 50 A30 30 0 0 1 5 50 Z" fill="#1b4d2b"/>
+            <path d="M40 40 C40 28 48 22 58 20 C58 32 52 40 40 40 Z" fill="#2f7d32" stroke="#faf7f0" stroke-width="1.5"/>
+          </svg>
+          <span class="logo__texto text-white" style="color:#fff">VerdeAndes <small style="color:var(--trigo)">AGRO S.A.C.</small></span>
+        </a>
+        <p>Proveemos abonos, semillas certificadas, insumos orgánicos e inorgánicos y plantones forestales para el agro del sur del Perú desde 2012.</p>
+        <div class="redes mt-4" aria-label="Redes sociales">
+          <a class="facebook" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="instagram" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="youtube" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a class="tiktok" href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a class="linkedin" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </section>
+
+      <nav aria-label="Enlaces del pie">
+        <h3>Enlaces rápidos</h3>
+        <ul>
+          <li><a href="nosotros.html"><i class="fa-solid fa-angle-right mr-2"></i>Quiénes somos</a></li>
+          <li><a href="servicios.html"><i class="fa-solid fa-angle-right mr-2"></i>Servicios</a></li>
+          <li><a href="catalogo.html"><i class="fa-solid fa-angle-right mr-2"></i>Catálogo y precios</a></li>
+          <li><a href="blog.html"><i class="fa-solid fa-angle-right mr-2"></i>Blog agrícola</a></li>
+          <li><a href="preguntas.html"><i class="fa-solid fa-angle-right mr-2"></i>Preguntas frecuentes</a></li>
+          <li><a href="clientes.html"><i class="fa-solid fa-angle-right mr-2"></i>Registro de clientes</a></li>
+        </ul>
+      </nav>
+
+      <section>
+        <h3>Contáctanos</h3>
+        <ul>
+          <li class="flex gap-3"><i class="fa-solid fa-location-dot mt-1 text-agro-trigo"></i><span>Av. Los Agricultores 450, Cerro Colorado, Arequipa</span></li>
+          <li class="flex gap-3"><i class="fa-solid fa-phone mt-1 text-agro-trigo"></i><a href="tel:+5154285430">(054) 285-430</a></li>
+          <li class="flex gap-3"><i class="fa-brands fa-whatsapp mt-1 text-agro-trigo"></i><a href="https://wa.me/51959123456" target="_blank" rel="noopener">+51 959 123 456</a></li>
+          <li class="flex gap-3"><i class="fa-solid fa-envelope mt-1 text-agro-trigo"></i><a href="mailto:ventas@verdeandesagro.pe">ventas@verdeandesagro.pe</a></li>
+        </ul>
+      </section>
+
+      <section id="boletin-ok">
+        <h3>Boletín agrícola</h3>
+        <p>Recibe consejos de cultivo, alertas climáticas y ofertas exclusivas.</p>
+        <form class="flex mt-3 rounded-full overflow-hidden bg-white/10 focus-within:ring-2 focus-within:ring-agro-trigo" action="#boletin-ok" method="get">
+          <label for="boletin-correo" class="visually-hidden">Correo electrónico</label>
+          <input id="boletin-correo" name="suscripcion" type="email" required placeholder="tu@correo.com" autocomplete="email" class="flex-1 min-w-0 bg-transparent px-4 py-3 text-white placeholder:text-white/60 outline-none" style="border:0">
+          <button type="submit" class="px-5 bg-agro-trigo text-agro-carbon font-bold transition-colors hover:bg-white cursor-pointer" style="border:0" aria-label="Suscribirme"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+        <h3 class="mt-6">Instituciones aliadas</h3>
+        <ul class="flex flex-wrap gap-x-4">
+          <li><a href="https://www.gob.pe/midagri" target="_blank" rel="noopener">MIDAGRI</a></li>
+          <li><a href="https://www.gob.pe/senasa" target="_blank" rel="noopener">SENASA</a></li>
+          <li><a href="https://www.gob.pe/serfor" target="_blank" rel="noopener">SERFOR</a></li>
+          <li><a href="https://www.gob.pe/inia" target="_blank" rel="noopener">INIA</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="pie__inferior">
+      <div class="contenedor flex flex-col md:flex-row items-center justify-between gap-3 py-5 text-center">
+        <p class="m-0">&copy; 2026 VerdeAndes Agro S.A.C. &mdash; RUC 20601234567. Todos los derechos reservados.</p>
+        <a href="reclamos.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/30 hover:border-agro-trigo transition-colors">
+          <i class="fa-solid fa-book-open"></i> Libro de Reclamaciones
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botones flotantes (100 % HTML + CSS) -->
+  <a class="whatsapp-flotante animate-latido" href="https://wa.me/51959123456" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  <a class="volver-arriba visible" href="#inicio" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></a>
+</body>
+</html>

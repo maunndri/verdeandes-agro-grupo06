@@ -1,0 +1,552 @@
+/* =============================================================
+   VerdeAndes Agro S.A.C. - Hoja de estilos CSS tradicional
+   Archivo: css/estilos.css  (incrustación externa)
+   Contenido:
+     1. Variables y reset        6. Tablas
+     2. Tipografía               7. Marquesina, iframes y multimedia
+     3. Barra superior           8. Pie de página
+     4. Cabecera y menú          9. Botón volver arriba
+     5. Layout con barra lateral 10. Media queries e impresión
+   ============================================================= */
+
+/* ---------- 1. Variables y reset ---------- */
+:root {
+  --verde: #2f7d32;
+  --verde-oscuro: #1b4d2b;
+  --verde-claro: #a5d6a7;
+  --tierra: #8b5e34;
+  --trigo: #e9c46a;
+  --terracota: #c8553d;
+  --crema: #faf7f0;
+  --carbon: #1f2a1f;
+  --blanco: #ffffff;
+  --alto-cabecera: 76px;
+  --radio: 14px;
+  --sombra: 0 6px 18px rgba(0, 0, 0, .08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--alto-cabecera) + 1rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--carbon);
+  background-color: var(--crema);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--verde);
+}
+
+:focus-visible {
+  outline: 3px solid var(--trigo);
+  outline-offset: 3px;
+}
+
+/* Enlace para saltar al contenido (accesibilidad) */
+.saltar-contenido {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 200;
+  padding: .7rem 1.2rem;
+  border-radius: 8px;
+  background: var(--trigo);
+  color: var(--carbon);
+  font-weight: 700;
+  text-decoration: none;
+}
+.saltar-contenido:focus { top: 1rem; }
+
+.visually-hidden:where(:not(:focus-within, :active)) {
+  position: absolute !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* ---------- 2. Tipografía ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', Georgia, serif;
+  line-height: 1.25;
+  color: var(--verde-oscuro);
+}
+
+.titulo-seccion {
+  position: relative;
+  display: inline-block;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  margin: 0 0 .75rem;
+}
+.titulo-seccion::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin-top: .6rem;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--trigo), var(--verde));
+}
+.text-center .titulo-seccion::after,
+.titulo-seccion.centrado::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subtitulo {
+  color: var(--tierra);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .82rem;
+}
+
+abbr[title] { text-decoration: underline dotted; cursor: help; }
+mark { background: rgba(233, 196, 106, .45); padding: 0 .2em; border-radius: 3px; }
+
+/* ---------- 3. Barra superior ---------- */
+.barra-superior {
+  background: var(--verde-oscuro);
+  color: #dfeee0;
+  font-size: .82rem;
+}
+.barra-superior a { color: #fff; text-decoration: none; }
+.barra-superior a:hover { color: var(--trigo); }
+
+/* ---------- 4. Cabecera y menú de navegación ---------- */
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, .96);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, .07);
+}
+
+.cabecera__interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--alto-cabecera);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.logo img { width: 48px; height: 48px; }
+.logo__texto {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: var(--verde-oscuro);
+}
+.logo__texto small {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: .68rem;
+  letter-spacing: .25em;
+  color: var(--tierra);
+}
+
+/* Botón de menú (visible en móvil) */
+.boton-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem 1rem;
+  border: 2px solid var(--verde);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--verde-oscuro);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  anchor-name: --boton-menu;
+}
+
+/* Lista de navegación: popover en móvil, en línea en escritorio */
+.menu-principal {
+  /* Disposición de respaldo si el navegador no soporta anchor() */
+  position: fixed;
+  inset: auto;
+  top: calc(var(--alto-cabecera) + .25rem);
+  top: anchor(--boton-menu bottom);
+  right: 1rem;
+  width: min(86vw, 22rem);
+  max-height: calc(100dvh - 6rem);
+  margin: .5rem 0 0;
+  padding: .75rem;
+  overflow: auto;
+  list-style: none;
+  border: 0;
+  border-radius: var(--radio);
+  background: #fff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .2);
+}
+.menu-principal::backdrop { background: rgba(0, 0, 0, .25); }
+
+.menu-principal a,
+.menu-principal .submenu-boton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: .65rem .9rem;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--carbon);
+  font: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .25s ease, color .25s ease;
+}
+.menu-principal a:hover,
+.menu-principal .submenu-boton:hover {
+  background: rgba(47, 125, 50, .1);
+  color: var(--verde);
+}
+.menu-principal a[aria-current="page"] {
+  color: var(--verde);
+  font-weight: 700;
+  box-shadow: inset 4px 0 0 var(--trigo);
+}
+
+.submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1rem;
+}
+.submenu[hidden] { display: none; }
+.submenu a { font-size: .93rem; }
+.submenu-boton i { transition: transform .3s ease; }
+.submenu-boton[aria-expanded="true"] i { transform: rotate(180deg); }
+
+/* ---------- 5. Layout con barra lateral ---------- */
+.contenedor {
+  width: min(1280px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.con-barra-lateral {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+.barra-lateral { align-self: start; }
+
+/* ---------- 6. Tablas ---------- */
+.tabla-contenedor {
+  overflow-x: auto;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  background: #fff;
+}
+
+.tabla-agro {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: .93rem;
+}
+.tabla-agro caption {
+  caption-side: top;
+  padding: 1rem 1.2rem;
+  text-align: left;
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 700;
+  color: var(--verde-oscuro);
+  background: #fff;
+}
+.tabla-agro thead th {
+  position: sticky;
+  top: 0;
+  padding: .9rem 1rem;
+  background: var(--verde-oscuro);
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.tabla-agro td,
+.tabla-agro tbody th {
+  padding: .8rem 1rem;
+  border-bottom: 1px solid #e8efe6;
+  text-align: left;
+}
+.tabla-agro tbody tr:nth-child(even) { background: #f6faf4; }
+.tabla-agro tbody tr { transition: background-color .2s ease; }
+.tabla-agro tbody tr:hover { background: rgba(233, 196, 106, .25); }
+.tabla-agro tfoot td {
+  padding: .9rem 1rem;
+  background: var(--crema);
+  font-weight: 700;
+  color: var(--tierra);
+}
+.tabla-agro .numero { text-align: right; font-variant-numeric: tabular-nums; }
+.tabla-agro .estado {
+  display: inline-block;
+  padding: .15rem .65rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 600;
+}
+.estado--stock { background: #e3f3e4; color: #1b5e20; }
+.estado--pocas { background: #fff4d6; color: #7a5a00; }
+.estado--agotado { background: #fbe3dd; color: #8e2c17; }
+
+/* ---------- 7. Marquesina, iframes y multimedia ---------- */
+.marquesina {
+  background: var(--trigo);
+  color: var(--carbon);
+  font-weight: 600;
+  font-size: .9rem;
+  padding: .45rem 0;
+}
+.marquesina marquee span { margin-right: 3.5rem; }
+.marquesina i { color: var(--verde-oscuro); margin-right: .35rem; }
+
+.marco-iframe {
+  position: relative;
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  background: #e9efe7;
+}
+.marco-iframe iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+.marco-iframe--mapa iframe { aspect-ratio: 16 / 9; min-height: 320px; }
+.marco-iframe--widget iframe { height: 460px; }
+
+figure.multimedia { margin: 0; }
+figure.multimedia figcaption {
+  margin-top: .6rem;
+  font-size: .85rem;
+  color: var(--tierra);
+  font-style: italic;
+}
+
+/* ---------- 8. Pie de página ---------- */
+.pie {
+  background: #142b19;
+  color: #cfe0d0;
+  font-size: .92rem;
+}
+.pie h3 {
+  color: #fff;
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+.pie a {
+  color: #cfe0d0;
+  text-decoration: none;
+  transition: color .25s ease;
+}
+.pie a:hover { color: var(--trigo); }
+.pie ul { list-style: none; padding: 0; margin: 0; }
+.pie li { margin-bottom: .45rem; }
+.pie__inferior {
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  font-size: .82rem;
+}
+
+/* Botones de redes sociales */
+.redes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+.redes a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  font-size: 1.05rem;
+  transition: transform .3s ease, background-color .3s ease;
+}
+.redes a:hover { transform: translateY(-4px) rotate(8deg); color: #fff; }
+.redes .facebook:hover  { background: #1877f2; }
+.redes .instagram:hover { background: #e1306c; }
+.redes .youtube:hover   { background: #ff0000; }
+.redes .tiktok:hover    { background: #000; }
+.redes .whatsapp:hover  { background: #25d366; }
+.redes .linkedin:hover  { background: #0a66c2; }
+
+/* Botón flotante de WhatsApp */
+.whatsapp-flotante {
+  position: fixed;
+  left: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  font-size: 1.7rem;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, .45);
+  text-decoration: none;
+}
+
+/* ---------- 9. Botón volver arriba ---------- */
+.volver-arriba {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--verde);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s;
+}
+.volver-arriba.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.volver-arriba:hover { background: var(--verde-oscuro); }
+
+/* ---------- 10. Media queries ---------- */
+
+/* Tablet: barra lateral a la derecha */
+@media (min-width: 900px) {
+  .con-barra-lateral { grid-template-columns: minmax(0, 1fr) 320px; }
+  .barra-lateral { position: sticky; top: calc(var(--alto-cabecera) + 1.5rem); }
+}
+
+/* Escritorio: menú en línea (el popover se muestra siempre) */
+@media (min-width: 1180px) {
+  .boton-menu { display: none; }
+
+  .menu-principal {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: .1rem;
+    width: auto;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+  }
+  .menu-principal::backdrop { display: none; }
+
+  .menu-principal > li { position: relative; }
+  .menu-principal > li > a,
+  .menu-principal .submenu-boton {
+    padding: .5rem .7rem;
+    font-size: .92rem;
+    white-space: nowrap;
+  }
+  .menu-principal a[aria-current="page"] { box-shadow: inset 0 -3px 0 var(--trigo); }
+
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 230px;
+    padding: .5rem;
+    border-radius: var(--radio);
+    background: #fff;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .14);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity .25s ease, transform .25s ease, visibility .25s;
+  }
+  .submenu[hidden] { display: block; }
+  .tiene-submenu:hover .submenu,
+  .tiene-submenu:focus-within .submenu,
+  .submenu-boton[aria-expanded="true"] + .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+/* Móvil pequeño */
+@media (max-width: 480px) {
+  .logo__texto { font-size: 1.05rem; }
+  .logo img { width: 40px; height: 40px; }
+  .barra-superior .ocultar-movil { display: none; }
+}
+
+/* Orientación horizontal en móviles */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero { min-height: 100vh; }
+}
+
+/* Impresión */
+@media print {
+  .cabecera, .barra-superior, .marquesina, .pie, .volver-arriba, .whatsapp-flotante, .barra-lateral {
+    display: none !important;
+  }
+  body { background: #fff; color: #000; }
+  a::after { content: " (" attr(href) ")"; font-size: .8em; }
+}

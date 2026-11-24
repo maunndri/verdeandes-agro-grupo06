@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Agrícola | VerdeAndes Agro</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;family=Poppins:wght@400;600;700&amp;display=swap">
+  <link rel="stylesheet" href="css/estilos.css?v=6">
+  <link rel="stylesheet" href="css/estilos-less.css?v=6">
+  <style>
+    body { padding: 1.25rem; background: #fff; }
+    .rad-calc { position: absolute; opacity: 0; pointer-events: none; }
+    .tabs-calc { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1rem; }
+    .tabs-calc label {
+      padding: .45rem .95rem;
+      border-radius: 999px;
+      border: 2px solid #2f7d32;
+      color: #1b4d2b;
+      font-weight: 600;
+      font-size: .84rem;
+      cursor: pointer;
+      transition: background-color .3s ease, color .3s ease, transform .3s ease;
+    }
+    .tabs-calc label:hover { background: rgba(47, 125, 50, .12); transform: translateY(-2px); }
+    .panel-dosis { display: none; }
+    .calc-grid { display: grid; gap: .75rem; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); margin-top: .75rem; }
+    #c-quinua:checked ~ .tabs-calc label[for="c-quinua"],
+    #c-cebolla:checked ~ .tabs-calc label[for="c-cebolla"],
+    #c-papa:checked ~ .tabs-calc label[for="c-papa"],
+    #c-alfalfa:checked ~ .tabs-calc label[for="c-alfalfa"],
+    #c-forestal:checked ~ .tabs-calc label[for="c-forestal"] {
+      background: #2f7d32;
+      color: #fff;
+    }
+    #c-quinua:checked ~ #p-quinua,
+    #c-cebolla:checked ~ #p-cebolla,
+    #c-papa:checked ~ #p-papa,
+    #c-alfalfa:checked ~ #p-alfalfa,
+    #c-forestal:checked ~ #p-forestal {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="margin:0 0 .25rem;font-size:1.2rem">Simulador de Insumos por Hectárea (100 % CSS)</h2>
+  <p style="margin:0 0 .85rem;font-size:.84rem;color:#555">Selecciona el cultivo para consultar las dosis recomendadas por hectárea (1 ha y lote comercial de 5 ha):</p>
+
+  <input class="rad-calc" type="radio" name="cultivo" id="c-quinua" checked>
+  <input class="rad-calc" type="radio" name="cultivo" id="c-cebolla">
+  <input class="rad-calc" type="radio" name="cultivo" id="c-papa">
+  <input class="rad-calc" type="radio" name="cultivo" id="c-alfalfa">
+  <input class="rad-calc" type="radio" name="cultivo" id="c-forestal">
+
+  <div class="tabs-calc" role="tablist" aria-label="Cultivos">
+    <label for="c-quinua">Quinua INIA</label>
+    <label for="c-cebolla">Cebolla Roja</label>
+    <label for="c-papa">Papa Comercial</label>
+    <label for="c-alfalfa">Alfalfa Dorm. 9</label>
+    <label for="c-forestal">Queñua Forestal</label>
+  </div>
+
+  <div id="p-quinua" class="panel-dosis">
+    <strong style="font-size:.88rem;color:#1b4d2b">Quinua Certificada (INIA 415 Pasankalla / Salcedo INIA) — Dosis por 1 ha (y 5 ha):</strong>
+    <div class="ficha-tecnica calc-grid">
+      <div class="ficha-tecnica__item"><strong>Semilla Certificada</strong><span>11 kg/ha (55 kg / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Humus / Compost</strong><span>40 sacos/ha (200 / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Abono 15-15-15</strong><span>6 sacos/ha (30 / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Inversión aprox.</strong><span>S/ 3 150 / ha (S/ 15 750 / 5 ha)</span></div>
+    </div>
+  </div>
+
+  <div id="p-cebolla" class="panel-dosis">
+    <strong style="font-size:.88rem;color:#1b4d2b">Cebolla Roja Arequipeña Seleccionada — Dosis por 1 ha (y 5 ha):</strong>
+    <div class="ficha-tecnica calc-grid">
+      <div class="ficha-tecnica__item"><strong>Semilla (latas 500 g)</strong><span>4 kg = 8 latas/ha (40 latas / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Compost Maduro</strong><span>60 sacos/ha (300 / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>BioFértil Mix 12-10-18</strong><span>12 sacos/ha (60 / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Inversión aprox.</strong><span>S/ 5 420 / ha (S/ 27 100 / 5 ha)</span></div>
+    </div>
+  </div>
+
+  <div id="p-papa" class="panel-dosis">
+    <strong style="font-size:.88rem;color:#1b4d2b">Papa Comercial (Canchan / Única) — Dosis por 1 ha (y 5 ha):</strong>
+    <div class="ficha-tecnica calc-grid">
+      <div class="ficha-tecnica__item"><strong>Tubérculo-Semilla</strong><span>1 800 kg/ha (9 000 kg / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Humus Californiano</strong><span>60 sacos/ha (300 / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Abono Sierra + Urea</strong><span>14 sacos/ha (70 / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Inversión aprox.</strong><span>S/ 6 180 / ha (S/ 30 900 / 5 ha)</span></div>
+    </div>
+  </div>
+
+  <div id="p-alfalfa" class="panel-dosis">
+    <strong style="font-size:.88rem;color:#1b4d2b">Alfalfa Forrajera Dormancia 9 (SW-9720) — Dosis por 1 ha (y 5 ha):</strong>
+    <div class="ficha-tecnica calc-grid">
+      <div class="ficha-tecnica__item"><strong>Semilla Certificada</strong><span>28 kg/ha (140 kg / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Compost + Yeso</strong><span>50 sacos/ha (250 / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Fosfato DAP 18-46-0</strong><span>8 sacos/ha (40 / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Inversión aprox.</strong><span>S/ 4 000 / ha (S/ 20 000 / 5 ha)</span></div>
+    </div>
+  </div>
+
+  <div id="p-forestal" class="panel-dosis">
+    <strong style="font-size:.88rem;color:#1b4d2b">Reforestación con Queñua (Polylepis 3x3 m) — Dosis por 1 ha (y 5 ha):</strong>
+    <div class="ficha-tecnica calc-grid">
+      <div class="ficha-tecnica__item"><strong>Plantones Micorrizados</strong><span>1 111 plantones/ha (5 555 / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Compost de Hoyado</strong><span>22 sacos/ha (110 / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Hidrogel Retenedor</strong><span>4 kg/ha (20 kg / 5 ha)</span></div>
+      <div class="ficha-tecnica__item"><strong>Inversión aprox.</strong><span>S/ 4 650 / ha (S/ 23 250 / 5 ha)</span></div>
+    </div>
+  </div>
+</body>
+</html>

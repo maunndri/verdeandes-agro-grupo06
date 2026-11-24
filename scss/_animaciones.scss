@@ -1,0 +1,54 @@
+// =============================================================
+//  VerdeAndes Agro - SASS
+//  Parcial: _animaciones.scss
+//  Keyframes propios y entrada fluida garantizada (siempre
+//  visible incluso sin JS o con caché previa del navegador)
+// =============================================================
+@use "variables" as v;
+@use "funciones" as f;
+@use "mixins" as m;
+
+@keyframes balanceo-hoja {
+  0%, 100% { transform: rotate(-5deg); }
+  50%      { transform: rotate(5deg); }
+}
+
+@keyframes crecer {
+  from { transform: scaleY(0); transform-origin: bottom; }
+  to   { transform: scaleY(1); transform-origin: bottom; }
+}
+
+@keyframes entrada-suave {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@include m.con-movimiento {
+  .hoja-animada { animation: balanceo-hoja 3.5s ease-in-out infinite; display: inline-block; }
+  .brote        { animation: crecer 1.2s ease-out both; }
+
+  // `backwards` (sin `forwards`) garantiza que:
+  // 1) Las tarjetas e imágenes SIEMPRE tengan opacity: 1 por defecto.
+  // 2) Al terminar los 0.5s de entrada, `transform` queda 100 % libre para el `:hover`.
+  .revelar {
+    opacity: 1;
+    animation: entrada-suave .5s v.$curva backwards;
+  }
+}
+
+// Barra de progreso de lectura
+.progreso-lectura {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  z-index: 100;
+  background: linear-gradient(90deg, f.color("trigo"), f.color("verde"));
+}

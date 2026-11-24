@@ -1,0 +1,270 @@
+// =============================================================
+//  VerdeAndes Agro - Preprocesador LESS
+//  Archivo: _componentes.less
+//  Componentes: botones, tarjetas de producto, insignias,
+//  contadores, banda CTA, widgets de barra lateral y planes.
+// =============================================================
+
+// ---------- Botones -----------------------------------------
+.btn-agro {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .8rem 1.6rem;
+  border-radius: @radio-pill;
+  font-family: @fuente-texto;
+  font-weight: 600;
+  font-size: .95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform .35s @curva-fluida,
+    box-shadow .35s @curva-fluida,
+    background-color .3s @curva-fluida,
+    border-color .3s @curva-fluida,
+    color .3s @curva-fluida;
+  .boton-variante(@verde);
+
+  &--tierra    { .boton-variante(@tierra); }
+  &--trigo     { .boton-variante(@trigo); }
+  &--terracota { .boton-variante(@terracota); }
+  &--blanco    { .boton-variante(@blanco); }
+  &--grande    { padding: 1rem 2.2rem; font-size: 1.05rem; }
+
+  i { transition: transform .35s @curva-fluida; }
+  &:hover i { transform: translate3d(4px, 0, 0); }
+}
+
+// ---------- Insignias por categoría (bucle sobre lista) ----
+.insignia {
+  display: inline-block;
+  padding: .25rem .8rem;
+  border-radius: @radio-pill;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.generar-insignias(@i: 1) when (@i <= length(@categorias)) {
+  @par:    extract(@categorias, @i);
+  @nombre: extract(@par, 1);
+  @color:  extract(@par, 2);
+  .insignia--@{nombre} {
+    background-color: fade(@color, 18%);
+    color: darken(@color, 12%);
+    border: 1px solid fade(@color, 45%);
+  }
+  .borde-@{nombre} { border-top: 5px solid @color; }
+  .generar-insignias(@i + 1);
+}
+.generar-insignias();
+
+// ---------- Tarjeta de producto (hover fluido a 60fps) -----
+.card-producto {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: @blanco;
+  border-radius: @radio;
+  border: 1px solid rgba(47, 125, 50, .10);
+  overflow: hidden;
+  .sombra(1);
+  .transicion-tarjeta();
+
+  &__imagen {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #eef3ec;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(27, 77, 43, .18) 100%);
+      opacity: 0;
+      transition: opacity .45s @curva-fluida;
+      pointer-events: none;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale3d(1, 1, 1);
+      backface-visibility: hidden;
+      will-change: transform;
+      transition: transform .6s @curva-fluida, filter .45s @curva-fluida;
+    }
+  }
+
+  &__cuerpo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    padding: 1.25rem 1.35rem 1.5rem;
+  }
+
+  &__titulo {
+    font-family: @fuente-titulos;
+    font-size: 1.15rem;
+    color: @verde-oscuro;
+    margin: 0;
+    transition: color .3s @curva-fluida;
+  }
+
+  &__precio {
+    margin-top: auto;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: @verde;
+    small { font-size: .75rem; color: lighten(@carbon, 40%); font-weight: 400; }
+  }
+
+  &:hover,
+  &:focus-within {
+    .sombra(2);
+    border-color: rgba(47, 125, 50, .35);
+    transform: translate3d(0, -7px, 0);
+    .card-producto__imagen::after { opacity: 1; }
+    .card-producto__imagen img {
+      transform: scale3d(1.06, 1.06, 1);
+      filter: brightness(1.03);
+    }
+    .card-producto__titulo { color: @verde; }
+  }
+
+  .responsivo(@movil, { &__cuerpo { padding: 1rem; } });
+}
+
+// ---------- Clase compartida para cards con utilidades Tailwind ----------
+.tarjeta-interactiva {
+  .sombra(1);
+  .transicion-tarjeta();
+  img {
+    transform: scale3d(1, 1, 1);
+    backface-visibility: hidden;
+    transition: transform .6s @curva-fluida, filter .45s @curva-fluida;
+  }
+  &:hover,
+  &:focus-within {
+    .sombra(2);
+    transform: translate3d(0, -7px, 0);
+    img {
+      transform: scale3d(1.06, 1.06, 1);
+      filter: brightness(1.03);
+    }
+  }
+}
+
+// ---------- Contadores / estadísticas -----------------------
+.contador {
+  .flex-centro(column);
+  padding: 1.8rem 1rem;
+  border-radius: @radio;
+  background: fade(@blanco, 12%);
+  border: 1px solid fade(@blanco, 25%);
+  backdrop-filter: blur(4px);
+  color: @blanco;
+  text-align: center;
+  .transicion-tarjeta();
+
+  &__numero {
+    font-family: @fuente-titulos;
+    font-size: 2.6rem;
+    font-weight: 900;
+    line-height: 1;
+    color: @trigo;
+  }
+  &__texto { font-size: .9rem; opacity: .9; margin-top: .4rem; }
+  &:hover {
+    background: fade(@blanco, 20%);
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+// ---------- Banda de llamado a la acción (CTA) -------------
+.banda-cta {
+  .degradado(@verde-oscuro, @verde);
+  color: @blanco;
+  border-radius: @radio * 1.5;
+  padding: (@espacio * 3) (@espacio * 2);
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -60px;
+    bottom: -60px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: fade(@trigo, 25%);
+  }
+  h2 { font-family: @fuente-titulos; color: @blanco; margin: 0 0 .5rem; }
+  p  { opacity: .9; }
+}
+
+// ---------- Widgets de barra lateral ------------------------
+.widget {
+  background: @blanco;
+  border-radius: @radio;
+  padding: 1.4rem;
+  margin-bottom: 1.5rem;
+  .sombra(1);
+
+  &__titulo {
+    font-family: @fuente-titulos;
+    font-size: 1.05rem;
+    color: @verde-oscuro;
+    padding-bottom: .6rem;
+    margin: 0 0 1rem;
+    border-bottom: 3px solid @trigo;
+  }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li + li { border-top: 1px dashed fade(@carbon, 15%); }
+  a {
+    display: flex;
+    justify-content: space-between;
+    padding: .55rem 0;
+    color: @carbon;
+    text-decoration: none;
+    transition: color .3s @curva-fluida, transform .3s @curva-fluida;
+    &:hover { color: @verde; transform: translate3d(5px, 0, 0); }
+  }
+}
+
+// ---------- Planes de asesoría ------------------------------
+.plan {
+  &:extend(.widget all);
+  text-align: center;
+  border-top: 6px solid @verde-claro;
+  .transicion-tarjeta();
+
+  &__precio {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: @verde-oscuro;
+    span { font-size: 1rem; font-weight: 400; color: lighten(@carbon, 35%); }
+  }
+  &--destacado {
+    border-top-color: @trigo;
+    .sombra(2);
+  }
+  &:hover {
+    .sombra(2);
+    transform: translate3d(0, -7px, 0);
+  }
+}
+
+// ---------- Utilidades generadas con bucle ------------------
+.espaciado(@n) when (@n > 0) {
+  .mt-agro-@{n} { margin-top: (@n * .5rem); }
+  .mb-agro-@{n} { margin-bottom: (@n * .5rem); }
+  .espaciado(@n - 1);
+}
+.espaciado(6);

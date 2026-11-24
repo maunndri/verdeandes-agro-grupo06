@@ -1,0 +1,31 @@
+// =============================================================
+//  VerdeAndes Agro - SASS
+//  Parcial: _funciones.scss  (funciones personalizadas)
+// =============================================================
+@use "sass:map";
+@use "sass:math";
+@use "sass:color";
+@use "variables" as v;
+
+// Obtiene un color del mapa de la paleta
+@function color($nombre) {
+  @if not map.has-key(v.$colores, $nombre) {
+    @error "El color `#{$nombre}` no existe en la paleta.";
+  }
+  @return map.get(v.$colores, $nombre);
+}
+
+// Convierte píxeles a rem
+@function rem($px, $base: 16px) {
+  @return math.div($px, $base) * 1rem;
+}
+
+// Versión transparente de un color de la paleta
+@function transparente($nombre, $alfa: .5) {
+  @return color.change(color($nombre), $alpha: $alfa);
+}
+
+// Oscurece un color de la paleta en un porcentaje
+@function sombrear($nombre, $cantidad: 10%) {
+  @return color.adjust(color($nombre), $lightness: -$cantidad);
+}

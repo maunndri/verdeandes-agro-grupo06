@@ -1,0 +1,139 @@
+// =============================================================
+//  VerdeAndes Agro - SASS
+//  Parcial: _componentes.scss
+//  Línea de tiempo, FAQ, equipo y utilidades de color
+// =============================================================
+@use "sass:map";
+@use "sass:color";
+@use "variables" as v;
+@use "funciones" as f;
+@use "mixins" as m;
+
+// ---------- Línea de tiempo (historia de la empresa) -------
+.linea-tiempo {
+  position: relative;
+  padding-left: 2.2rem;
+  border-left: 4px solid f.color("verde-claro");
+
+  &__item {
+    position: relative;
+    margin-bottom: 2rem;
+    &::before {
+      content: "";
+      position: absolute;
+      left: calc(-2.2rem - 12px);
+      top: .3rem;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: f.color("verde");
+      border: 4px solid f.color("crema");
+      box-shadow: 0 0 0 3px f.color("verde");
+    }
+  }
+
+  &__anio {
+    font-family: v.$fuente-titulos;
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: f.color("tierra");
+  }
+
+  @include m.desde("lg") {
+    padding-left: 0;
+    border-left: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    border-top: 4px solid f.color("verde-claro");
+    padding-top: 2rem;
+    &__item::before { left: 0; top: calc(-2rem - 12px); }
+  }
+}
+
+// ---------- Preguntas frecuentes (details/summary) ---------
+.faq {
+  details {
+    @extend %tarjeta-base;
+    margin-bottom: 1rem;
+    border-left: 5px solid f.color("verde");
+    @include m.transicion(box-shadow, transform);
+
+    &:hover {
+      transform: translate3d(0, -2px, 0);
+    }
+
+    &[open] {
+      box-shadow: 0 14px 30px f.transparente("verde-oscuro", .16);
+      summary::after { transform: rotate(45deg); }
+    }
+  }
+
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.4rem;
+    font-weight: 600;
+    color: f.color("verde-oscuro");
+    cursor: pointer;
+    list-style: none;
+    &::-webkit-details-marker { display: none; }
+    &::after {
+      content: "+";
+      font-size: 1.6rem;
+      line-height: 1;
+      color: f.color("tierra");
+      @include m.transicion(transform);
+    }
+  }
+
+  .respuesta { padding: 0 1.4rem 1.3rem; line-height: 1.75; }
+}
+
+// ---------- Tarjetas de equipo (hover fluido sin rotación) -
+.miembro {
+  @extend %tarjeta-base;
+  text-align: center;
+  padding: 2rem 1.2rem;
+  border: 1px solid rgba(47, 125, 50, .10);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform, box-shadow;
+  @include m.transicion(transform, box-shadow, border-color);
+
+  &__avatar {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(135deg, f.color("verde"), f.color("verde-oscuro"));
+    border: 5px solid f.color("trigo");
+    transition: transform .45s v.$curva;
+  }
+  &:hover {
+    transform: translate3d(0, -7px, 0);
+    border-color: rgba(47, 125, 50, .35);
+    box-shadow: 0 22px 44px -12px f.transparente("verde-oscuro", .22), 0 10px 20px -8px rgba(0, 0, 0, .08);
+    .miembro__avatar { transform: scale3d(1.06, 1.06, 1); }
+  }
+}
+
+// ---------- Utilidades de color generadas con @each --------
+@each $nombre, $valor in v.$colores {
+  .txt-#{$nombre} { color: $valor; }
+  .fondo-#{$nombre} { background-color: $valor; }
+}
+
+// Escala de tonos de verde con @for
+@for $i from 1 through 5 {
+  .verde-tono-#{$i} {
+    background-color: color.mix(f.color("verde"), #fff, $i * 20%);
+  }
+}

@@ -1,0 +1,98 @@
+﻿// =============================================================
+//  VerdeAndes Agro - SASS
+//  Parcial: _galeria.scss  (grid layout de galerÃ­a y multimedia)
+// =============================================================
+@use "sass:list";
+@use "variables" as v;
+@use "funciones" as f;
+@use "mixins" as m;
+
+// GalerÃ­a con CSS Grid y Ã¡reas nombradas
+.galeria-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 180px;
+
+  @include m.desde("md") {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    grid-template-areas:
+      "a a b c"
+      "a a d d"
+      "e f d d"
+      "g g h i";
+  }
+
+  figure {
+    position: relative;
+    margin: 0;
+    border-radius: v.$radio;
+    overflow: hidden;
+    cursor: zoom-in;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include m.transicion(transform, filter);
+    }
+
+    figcaption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 2rem 1rem .8rem;
+      background: linear-gradient(transparent, rgba(0, 0, 0, .75));
+      color: #fff;
+      font-size: .9rem;
+      transform: translateY(100%);
+      @include m.transicion(transform);
+    }
+
+    &:hover,
+    &:focus-within {
+      img { transform: scale(1.1); filter: saturate(1.25); }
+      figcaption { transform: translateY(0); }
+    }
+  }
+
+  // AsignaciÃ³n de Ã¡reas con @for y una lista de letras
+  $areas: a, b, c, d, e, f, g, h, i;
+  @for $i from 1 through list.length($areas) {
+    @include m.desde("md") {
+      figure:nth-child(#{$i}) { grid-area: list.nth($areas, $i); }
+    }
+  }
+}
+
+// Contenedor de video responsivo
+.video-marco {
+  @extend %tarjeta-base;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  video, iframe { width: 100%; height: 100%; border: 0; display: block; }
+}
+
+// Reproductor de audio personalizado
+.audio-tarjeta {
+  @extend %tarjeta-base;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 1.4rem;
+  border-left: 6px solid f.color("trigo");
+
+  &__icono {
+    flex: 0 0 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: f.color("verde");
+    color: #fff;
+    font-size: 1.6rem;
+  }
+  audio { width: 100%; }
+
+  @include m.hasta("sm") { flex-direction: column; text-align: center; }
+}

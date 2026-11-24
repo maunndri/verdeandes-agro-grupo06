@@ -1,0 +1,108 @@
+// =============================================================
+//  VerdeAndes Agro - SASS
+//  Parcial: _banners.scss  (hero de inicio y banners internos)
+// =============================================================
+@use "variables" as v;
+@use "funciones" as f;
+@use "mixins" as m;
+
+.hero {
+  @include m.capa-oscura(.65);
+  min-height: 88vh;
+  display: grid;
+  place-items: center;
+  padding: f.rem(120) 1.25rem f.rem(80);
+  background: f.color("verde-oscuro") url("../img/banners/hero-campo.jpg") center / cover no-repeat;
+  color: f.color("blanco");
+  text-align: center;
+
+  &__contenido { max-width: 860px; }
+
+  &__etiqueta {
+    display: inline-block;
+    padding: .4rem 1rem;
+    margin-bottom: 1.2rem;
+    border-radius: 999px;
+    background: f.transparente("trigo", .2);
+    border: 1px solid f.transparente("trigo", .6);
+    color: f.color("trigo");
+    font-size: .85rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  &__titulo {
+    font-family: v.$fuente-titulos;
+    font-size: clamp(2.1rem, 5vw, 3.8rem);
+    color: #ffffff;
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, .35);
+    span { color: f.color("trigo"); }
+  }
+
+  &__texto {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    opacity: .92;
+    margin: 0 auto 2rem;
+    max-width: 680px;
+  }
+
+  @include m.hasta("md") {
+    min-height: 75vh;
+    padding-top: f.rem(100);
+  }
+}
+
+// Banner de páginas internas: se genera una variante por imagen
+.banner-pagina {
+  @include m.capa-oscura(.6);
+  padding: f.rem(130) 1.25rem f.rem(70);
+  background-position: center;
+  background-size: cover;
+  background-color: f.color("verde-oscuro");
+  color: #fff;
+  text-align: center;
+
+  h1 {
+    font-family: v.$fuente-titulos;
+    color: #ffffff;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    margin: 0 0 .5rem;
+  }
+
+  .migas {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: .9rem;
+    li + li::before { content: "/"; margin-right: .5rem; opacity: .6; }
+    a { color: f.color("trigo"); text-decoration: none; &:hover { text-decoration: underline; } }
+  }
+}
+
+$banners: (
+  "nosotros":     "equipo",
+  "abonos":       "abonos",
+  "semillas":     "semillas",
+  "organicos":    "organicos",
+  "inorganicos":  "inorganicos",
+  "silvicultura": "silvicultura",
+  "catalogo":     "abonos",
+  "servicios":    "servicios",
+  "galeria":      "blog-reforestacion",
+  "blog":         "blog-quinoa",
+  "contacto":     "hero-campo",
+  "clientes":     "invernadero",
+  "reclamos":     "servicios",
+  "preguntas":    "blog-compost"
+);
+
+@each $pagina, $imagen in $banners {
+  .banner-pagina--#{$pagina} {
+    background-image: url("../img/banners/#{$imagen}.jpg");
+  }
+}

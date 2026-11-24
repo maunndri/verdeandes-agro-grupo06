@@ -1,0 +1,54 @@
+// =============================================================
+//  VerdeAndes Agro - SASS
+//  Parcial: _mixins.scss
+// =============================================================
+@use "sass:map";
+@use "variables" as v;
+
+// Media query a partir del mapa de breakpoints
+@mixin desde($bp) {
+  @media (min-width: map.get(v.$breakpoints, $bp)) {
+    @content;
+  }
+}
+
+@mixin hasta($bp) {
+  @media (max-width: (map.get(v.$breakpoints, $bp) - 1px)) {
+    @content;
+  }
+}
+
+// Capa oscura sobre imágenes de fondo
+@mixin capa-oscura($opacidad: .55) {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, $opacidad * .4), rgba(0, 0, 0, $opacidad));
+  }
+}
+
+// Transición estándar
+@mixin transicion($props...) {
+  transition-property: $props;
+  transition-duration: v.$duracion;
+  transition-timing-function: v.$curva;
+}
+
+// Movimiento reducido (accesibilidad)
+@mixin con-movimiento {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+// Placeholder compartido (se usa con @extend)
+%tarjeta-base {
+  background: #fff;
+  border-radius: v.$radio;
+  box-shadow: v.$sombra;
+  overflow: hidden;
+}

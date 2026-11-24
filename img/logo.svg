@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="titulo-logo">
+  <title id="titulo-logo">VerdeAndes Agro</title>
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9c46a"/>
+      <stop offset="1" stop-color="#f6e3a8"/>
+    </linearGradient>
+    <linearGradient id="hoja" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4caf50"/>
+      <stop offset="1" stop-color="#1b4d2b"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#cielo)" stroke="#1b4d2b" stroke-width="3"/>
+  <!-- Volcán con nieve -->
+  <path d="M8 44 L26 18 L32 24 L36 20 L56 44 Z" fill="#8b5e34"/>
+  <path d="M22 24 L26 18 L32 24 L36 20 L40 25 L35 27 L31 25 L27 28 Z" fill="#ffffff"/>
+  <!-- Campos de cultivo -->
+  <path d="M4 44 Q32 36 60 44 L60 50 Q32 42 4 50 Z" fill="#2f7d32"/>
+  <path d="M5 50 Q32 43 59 50 A30 30 0 0 1 5 50 Z" fill="#1b4d2b"/>
+  <!-- Hoja -->
+  <path d="M40 40 C40 28 48 22 58 20 C58 32 52 40 40 40 Z" fill="url(#hoja)" stroke="#faf7f0" stroke-width="1.5"/>
+  <path d="M41 39 C46 33 50 28 56 22" fill="none" stroke="#faf7f0" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

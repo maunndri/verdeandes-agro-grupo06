@@ -1,0 +1,38 @@
+// =============================================================
+//  VerdeAndes Agro - Preprocesador LESS
+//  Archivo: _variables.less
+//  Descripción: Variables globales (paleta, tipografía, medidas)
+// =============================================================
+
+// --- Paleta corporativa -------------------------------------
+@verde:          #2f7d32;   // hoja / marca
+@verde-oscuro:   #1b4d2b;   // bosque
+@verde-claro:    #a5d6a7;   // brote
+@tierra:         #8b5e34;   // abonos / suelo
+@trigo:          #e9c46a;   // semillas / cosecha
+@terracota:      #c8553d;   // alertas, inorgánicos
+@cielo:          #3a86ff;   // riego / agua
+@crema:          #faf7f0;   // fondos
+@carbon:         #1f2a1f;   // texto principal
+@blanco:         #ffffff;
+
+// --- Tipografía ---------------------------------------------
+@fuente-titulos: 'Merriweather', Georgia, serif;
+@fuente-texto:   'Poppins', 'Segoe UI', system-ui, sans-serif;
+@tamano-base:    16px;
+
+// --- Medidas, bordes y sombras -----------------------------
+@radio:          14px;
+@radio-pill:     999px;
+@espacio:        1rem;
+@sombra-suave:   0 6px 18px rgba(0, 0, 0, .08);
+@sombra-fuerte:  0 14px 34px rgba(27, 77, 43, .22);
+@transicion:     all .35s cubic-bezier(.25, .8, .25, 1);
+
+// --- Puntos de quiebre (media queries) ----------------------
+@movil:          ~"(max-width: 640px)";
+@tablet:         ~"(min-width: 641px) and (max-width: 1023px)";
+@escritorio:     ~"(min-width: 1024px)";
+
+// --- Mapa de categorías (nombre, color) para bucles --------
+@categorias: abonos @tierra, semillas @trigo, organicos @verde, inorganicos @terracota, silvicultura @verde-oscuro;

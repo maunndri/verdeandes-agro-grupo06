@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <!-- ===== Meta tags básicos ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Abonos Agrícolas | VerdeAndes Agro</title>
+  <meta name="description" content="Abonos compuestos, foliares y órgano-minerales para cultivos de costa y sierra en Arequipa.">
+  <meta name="keywords" content="abonos agrícolas, abono foliar, NPK, fertilizantes Arequipa">
+  <meta name="author" content="Grupo 06 - Hojas de Estilo en Cascada Avanzado">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1b4d2b">
+  <!-- Open Graph para redes sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_PE">
+  <meta property="og:title" content="Abonos Agrícolas | VerdeAndes Agro">
+  <meta property="og:description" content="Abonos compuestos, foliares y órgano-minerales para cultivos de costa y sierra en Arequipa.">
+  <meta property="og:image" content="img/banners/hero-campo.jpg">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+
+  <!-- ===== Tipografías externas (Google Fonts) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap">
+  <!-- ===== Iconos vectoriales (Font Awesome) ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- ===== 1. CSS tradicional (10 % incrustación externa) ===== -->
+  <link rel="stylesheet" href="css/estilos.css?v=6">
+  <!-- ===== 2. Preprocesador LESS (15 % less/estilos.less compilado) ===== -->
+  <link rel="stylesheet" href="css/estilos-less.css?v=6">
+  <!-- ===== 3. Preprocesador SASS (15 % scss/estilos.scss compilado) ===== -->
+  <link rel="stylesheet" href="css/estilos-sass.css?v=6">
+  <!-- ===== 4. Framework Tailwind CSS (60 % enlace externo CSS compilado, 0 % JS) ===== -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="css/tailwind.css?v=6">
+</head>
+<body id="inicio" class="font-texto">
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido principal</a>
+
+  <!-- ===== Barra superior de contacto ===== -->
+  <div class="barra-superior">
+    <div class="contenedor flex flex-wrap items-center justify-between gap-2 py-2">
+      <ul class="flex flex-wrap items-center gap-x-5 gap-y-1 list-none m-0 p-0">
+        <li><a href="tel:+5154285430"><i class="fa-solid fa-phone mr-1" aria-hidden="true"></i> (054) 285-430</a></li>
+        <li><a href="mailto:ventas@verdeandesagro.pe"><i class="fa-solid fa-envelope mr-1" aria-hidden="true"></i> ventas@verdeandesagro.pe</a></li>
+        <li class="ocultar-movil"><i class="fa-solid fa-clock mr-1" aria-hidden="true"></i> Lun - Sáb: 7:00 a. m. - 6:00 p. m.</li>
+      </ul>
+      <ul class="flex items-center gap-4 list-none m-0 p-0" aria-label="Redes sociales">
+        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+        <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== Cabecera con logo y menú de opciones ===== -->
+  <header class="cabecera">
+    <div class="cabecera__interior">
+      <a class="logo" href="index.html" aria-label="VerdeAndes Agro - Ir al inicio">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" class="shrink-0 transition-transform duration-500 hover:scale-105">
+          <defs>
+            <linearGradient id="cielo-h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9c46a"/><stop offset="1" stop-color="#f6e3a8"/></linearGradient>
+            <linearGradient id="hoja-h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4caf50"/><stop offset="1" stop-color="#1b4d2b"/></linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="30" fill="url(#cielo-h)" stroke="#1b4d2b" stroke-width="3"/>
+          <path d="M8 44 L26 18 L32 24 L36 20 L56 44 Z" fill="#8b5e34"/>
+          <path d="M22 24 L26 18 L32 24 L36 20 L40 25 L35 27 L31 25 L27 28 Z" fill="#ffffff"/>
+          <path d="M4 44 Q32 36 60 44 L60 50 Q32 42 4 50 Z" fill="#2f7d32"/>
+          <path d="M5 50 Q32 43 59 50 A30 30 0 0 1 5 50 Z" fill="#1b4d2b"/>
+          <path d="M40 40 C40 28 48 22 58 20 C58 32 52 40 40 40 Z" fill="url(#hoja-h)" stroke="#faf7f0" stroke-width="1.5"/>
+          <path d="M41 39 C46 33 50 28 56 22" fill="none" stroke="#faf7f0" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <span class="logo__texto">VerdeAndes <small>AGRO S.A.C.</small></span>
+      </a>
+
+      <nav class="flex items-center gap-3" aria-label="Menú principal">
+        <button class="boton-menu" type="button" popovertarget="menu-principal" aria-controls="menu-principal">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i><span>Menú</span>
+        </button>
+        <ul id="menu-principal" class="menu-principal" popover="auto">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li class="tiene-submenu">
+            <button class="submenu-boton" type="button" aria-expanded="false" aria-controls="submenu-productos" style="color:var(--verde);font-weight:700">
+              Productos <i class="fa-solid fa-chevron-down text-xs ml-1" aria-hidden="true"></i>
+            </button>
+            <ul id="submenu-productos" class="submenu">
+              <li><a href="abonos.html" aria-current="page"><span><i class="fa-solid fa-sack-xmark w-5 text-agro-tierra" aria-hidden="true"></i> Abonos</span></a></li>
+              <li><a href="semillas.html"><span><i class="fa-solid fa-seedling w-5 text-agro-tierra" aria-hidden="true"></i> Semillas</span></a></li>
+              <li><a href="organicos.html"><span><i class="fa-solid fa-worm w-5 text-agro-tierra" aria-hidden="true"></i> Materiales orgánicos</span></a></li>
+              <li><a href="inorganicos.html"><span><i class="fa-solid fa-flask w-5 text-agro-tierra" aria-hidden="true"></i> Materiales inorgánicos</span></a></li>
+              <li><a href="silvicultura.html"><span><i class="fa-solid fa-tree w-5 text-agro-tierra" aria-hidden="true"></i> Silvicultura</span></a></li>
+              <li><a href="catalogo.html"><span><i class="fa-solid fa-table-list w-5 text-agro-tierra" aria-hidden="true"></i> Catálogo y precios</span></a></li>
+            </ul>
+          </li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li class="tiene-submenu">
+            <button class="submenu-boton" type="button" aria-expanded="false" aria-controls="submenu-atencion">
+              Atención <i class="fa-solid fa-chevron-down text-xs ml-1" aria-hidden="true"></i>
+            </button>
+            <ul id="submenu-atencion" class="submenu">
+              <li><a href="contacto.html"><span><i class="fa-solid fa-envelope w-5 text-agro-tierra" aria-hidden="true"></i> Contacto</span></a></li>
+              <li><a href="clientes.html"><span><i class="fa-solid fa-user-plus w-5 text-agro-tierra" aria-hidden="true"></i> Registro de clientes</span></a></li>
+              <li><a href="reclamos.html"><span><i class="fa-solid fa-book w-5 text-agro-tierra" aria-hidden="true"></i> Libro de reclamaciones</span></a></li>
+              <li><a href="preguntas.html"><span><i class="fa-solid fa-circle-question w-5 text-agro-tierra" aria-hidden="true"></i> Preguntas frecuentes</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="contacto.html" class="btn-agro hidden md:inline-flex !py-2 !px-5">
+        <i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i> Cotizar
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== Marquesina de novedades (HTML puro) ===== -->
+  <div class="marquesina" role="region" aria-label="Novedades">
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+      <span><i class="fa-solid fa-seedling"></i> Campaña de siembra 2026-2027: semillas certificadas de quinua y maíz con 15% de descuento.</span>
+      <span><i class="fa-solid fa-truck"></i> Envíos gratuitos a todo Arequipa por compras mayores a S/ 500.</span>
+      <span><i class="fa-solid fa-tree"></i> Programa "Un plantón por cada saco": reforestamos el sur del Perú contigo.</span>
+      <span><i class="fa-solid fa-flask-vial"></i> Análisis de suelo con resultados en 72 horas.</span>
+    </marquee>
+  </div>
+
+  <main id="contenido">
+    <!-- ===== Banner de la página ===== -->
+    <section class="banner-pagina banner-pagina--abonos">
+      <div class="contenedor">
+        <h1 class="animate-aparecer">Abonos Agrícolas</h1>
+        <p class="max-w-2xl mx-auto mb-4 opacity-90 animate-aparecer-lento">Nutrición balanceada de liberación controlada, foliar y de fondo para suelos de costa, valle interandino y sierra alta.</p>
+        <nav aria-label="Ruta de navegación">
+          <ol class="migas">
+            <li><a href="index.html">Inicio</a></li><li><a href="catalogo.html">Productos</a></li><li aria-current="page">Abonos</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="contenedor con-barra-lateral">
+        <div>
+          <header class="mb-8">
+            <p class="subtitulo">Línea 01 &bull; Abonos</p>
+            <h2 class="titulo-seccion">Abonos de fondo, foliares y mezclas físicas</h2>
+            <p>Nuestros abonos están formulados específicamente para corregir deficiencias de nitrógeno (<abbr title="Nitrógeno">N</abbr>), fósforo (<abbr title="Pentóxido de fósforo">P<sub>2</sub>O<sub>5</sub></abbr>), potasio (<abbr title="Óxido de potasio">K<sub>2</sub>O</abbr>) y micronutrientes en suelos volcánicos y aluviales de la región Arequipa.<br>Cada lote cuenta con certificado de análisis químico y guía de dosificación por cultivo.</p>
+          </header>
+
+          <!-- Barras de nutrientes N-P-K (LESS .barra-nutriente) -->
+          <div class="bg-white rounded-2xl p-6 shadow-md mb-10 revelar">
+            <h3 class="mt-0 mb-4 text-lg"><i class="fa-solid fa-chart-simple text-agro-verde mr-2"></i>Balance nutricional promedio &mdash; Mezcla Maicera VerdeAndes</h3>
+            <div class="space-y-3 text-sm">
+              <div>
+                <div class="flex justify-between font-semibold mb-1"><span>Nitrógeno total (N)</span><span>20 %</span></div>
+                <div class="barra-nutriente"><span style="width:80%"></span></div>
+              </div>
+              <div>
+                <div class="flex justify-between font-semibold mb-1"><span>Fósforo asimilable (P<sub>2</sub>O<sub>5</sub>)</span><span>20 %</span></div>
+                <div class="barra-nutriente"><span style="width:80%"></span></div>
+              </div>
+              <div>
+                <div class="flex justify-between font-semibold mb-1"><span>Potasio soluble (K<sub>2</sub>O)</span><span>20 %</span></div>
+                <div class="barra-nutriente"><span style="width:80%"></span></div>
+              </div>
+              <div>
+                <div class="flex justify-between font-semibold mb-1"><span>Azufre, magnesio y microelementos quelatados</span><span>8 %</span></div>
+                <div class="barra-nutriente"><span style="width:45%"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-2">
+            <article class="card-producto revelar">
+              <div class="card-producto__imagen">
+                <img src="img/miniaturas/abono-compuesto.jpg" alt="Abono Compuesto Sierra 15-15-15" width="800" height="530">
+              </div>
+              <div class="card-producto__cuerpo">
+                <span class="insignia insignia--abonos">Abono compuesto</span>
+                <h3 class="card-producto__titulo">Abono Compuesto Sierra 15-15-15</h3>
+                <p class="text-sm text-gray-600 m-0">Granulado homogéneo para siembra de papa, maíz amiláceo y haba en valles interandinos.</p>
+                <div class="ficha-tecnica my-2"><div class="ficha-tecnica__item"><strong>Fórmula</strong><span>15-15-15 + 5S</span></div><div class="ficha-tecnica__item"><strong>Dosis</strong><span>300-450 kg/ha</span></div></div>
+                <p class="card-producto__precio">S/ 148.00 <small>/ saco 50 kg</small></p>
+                <div class="flex gap-2">
+                  <a href="contacto.html" class="btn-agro flex-1 justify-center !py-2"><i class="fa-solid fa-cart-plus"></i> Cotizar</a>
+                  <a href="catalogo.html" class="btn-agro btn-agro--contorno !py-2 !px-4" aria-label="Ver en tabla comparativa"><i class="fa-solid fa-table-list"></i></a>
+                </div>
+              </div>
+            </article>
+            <article class="card-producto revelar">
+              <div class="card-producto__imagen">
+                <img src="img/miniaturas/abono-foliar.jpg" alt="FoliarAndes Multimineral" width="800" height="530">
+              </div>
+              <div class="card-producto__cuerpo">
+                <span class="insignia insignia--abonos">Abono foliar</span>
+                <h3 class="card-producto__titulo">FoliarAndes Multimineral</h3>
+                <p class="text-sm text-gray-600 m-0">Concentrado soluble rico en zinc, boro y aminoácidos libres para floración y cuajado.</p>
+                <div class="ficha-tecnica my-2"><div class="ficha-tecnica__item"><strong>Presentación</strong><span>Envase 1 L</span></div><div class="ficha-tecnica__item"><strong>Dosis</strong><span>1.5 L / cilindro</span></div></div>
+                <p class="card-producto__precio">S/ 38.00 <small>/ litro</small></p>
+                <div class="flex gap-2">
+                  <a href="contacto.html" class="btn-agro flex-1 justify-center !py-2"><i class="fa-solid fa-cart-plus"></i> Cotizar</a>
+                  <a href="catalogo.html" class="btn-agro btn-agro--contorno !py-2 !px-4" aria-label="Ver en tabla comparativa"><i class="fa-solid fa-table-list"></i></a>
+                </div>
+              </div>
+            </article>
+            <article class="card-producto revelar">
+              <div class="card-producto__imagen">
+                <img src="img/miniaturas/abono-organomineral.jpg" alt="BioFértil Mix Valle 12-10-18" width="800" height="530">
+              </div>
+              <div class="card-producto__cuerpo">
+                <span class="insignia insignia--abonos">Abono órgano-mineral</span>
+                <h3 class="card-producto__titulo">BioFértil Mix Valle 12-10-18</h3>
+                <p class="text-sm text-gray-600 m-0">Combina materia orgánica humificada con NPK mineral para cebolla, ajo y hortalizas.</p>
+                <div class="ficha-tecnica my-2"><div class="ficha-tecnica__item"><strong>Mat. orgánica</strong><span>25 %</span></div><div class="ficha-tecnica__item"><strong>pH</strong><span>6.8 neutro</span></div></div>
+                <p class="card-producto__precio">S/ 115.00 <small>/ saco 50 kg</small></p>
+                <div class="flex gap-2">
+                  <a href="contacto.html" class="btn-agro flex-1 justify-center !py-2"><i class="fa-solid fa-cart-plus"></i> Cotizar</a>
+                  <a href="catalogo.html" class="btn-agro btn-agro--contorno !py-2 !px-4" aria-label="Ver en tabla comparativa"><i class="fa-solid fa-table-list"></i></a>
+                </div>
+              </div>
+            </article>
+            <article class="card-producto revelar">
+              <div class="card-producto__imagen">
+                <img src="img/miniaturas/abono-arrancador.jpg" alt="RaízFuerte Fosfatado 10-40-10" width="800" height="530">
+              </div>
+              <div class="card-producto__cuerpo">
+                <span class="insignia insignia--abonos">Arrancador radicular</span>
+                <h3 class="card-producto__titulo">RaízFuerte Fosfatado 10-40-10</h3>
+                <p class="text-sm text-gray-600 m-0">Alta concentración de fósforo disponible para trasplante de hortalizas y frutales.</p>
+                <div class="ficha-tecnica my-2"><div class="ficha-tecnica__item"><strong>Solubilidad</strong><span>99.5 %</span></div><div class="ficha-tecnica__item"><strong>Aplicación</strong><span>Drench / goteo</span></div></div>
+                <p class="card-producto__precio">S/ 195.00 <small>/ saco 25 kg</small></p>
+                <div class="flex gap-2">
+                  <a href="contacto.html" class="btn-agro flex-1 justify-center !py-2"><i class="fa-solid fa-cart-plus"></i> Cotizar</a>
+                  <a href="catalogo.html" class="btn-agro btn-agro--contorno !py-2 !px-4" aria-label="Ver en tabla comparativa"><i class="fa-solid fa-table-list"></i></a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Tabla de plan de abonamiento -->
+          <div class="mt-14">
+            <h3 class="titulo-seccion text-xl">Tabla de abonamiento recomendado por etapa fenológica</h3>
+            <div class="tabla-contenedor mt-4">
+              <table class="tabla-agro">
+                <caption>Plan referencial de abonamiento para cultivos de valle (dosis por hectárea)</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Cultivo</th>
+                    <th scope="col">Siembra / Fondo</th>
+                    <th scope="col">Deshierbo / Aporque</th>
+                    <th scope="col">Prefloración (Foliar)</th>
+                    <th scope="col" class="numero">Rendimiento meta (t/ha)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Cebolla roja arequipeña</th>
+                    <td>6 sacos BioFértil Mix + 2 t compost</td>
+                    <td>4 sacos Sierra 15-15-15</td>
+                    <td>3 L FoliarAndes Multimineral</td>
+                    <td class="numero">48.0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Papa Canchan / Única</th>
+                    <td>8 sacos Sierra 15-15-15 + 3 t humus</td>
+                    <td>5 sacos Urea agrícola</td>
+                    <td>2 L FoliarAndes + calcio boro</td>
+                    <td class="numero">35.5</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ajo Napuri</th>
+                    <td>5 sacos BioFértil Mix + 1.5 t guano</td>
+                    <td>4 sacos sulfato de potasio</td>
+                    <td>3 L FoliarAndes Multimineral</td>
+                    <td class="numero">16.2</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Maíz chala / forrajero</th>
+                    <td>6 sacos Sierra 15-15-15</td>
+                    <td>6 sacos nitrato de amonio</td>
+                    <td>2 L FoliarAndes Zinc</td>
+                    <td class="numero">72.0</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="5">* Dosis referenciales sujetas a análisis previo de fertilidad de suelo en nuestro laboratorio.</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Barra lateral ===== -->
+        <aside class="barra-lateral" aria-label="Barra lateral">
+
+          <section class="widget">
+            <h2 class="widget__titulo">Calculadora rápida</h2>
+            <p class="text-sm">Consulta la calculadora interactiva en la página de <a href="servicios.html#calculadora" class="font-semibold">Servicios técnicos</a> para estimar sacos por hectárea.</p>
+          </section>
+          <section class="widget">
+            <h2 class="widget__titulo">Categorías</h2>
+            <ul>
+              <li><a href="abonos.html"><span><i class="fa-solid fa-sack-xmark mr-2 text-agro-tierra"></i>Abonos</span><span class="insignia insignia--abonos">18</span></a></li>
+              <li><a href="semillas.html"><span><i class="fa-solid fa-seedling mr-2 text-agro-tierra"></i>Semillas</span><span class="insignia insignia--semillas">24</span></a></li>
+              <li><a href="organicos.html"><span><i class="fa-solid fa-worm mr-2 text-agro-tierra"></i>Orgánicos</span><span class="insignia insignia--organicos">12</span></a></li>
+              <li><a href="inorganicos.html"><span><i class="fa-solid fa-flask mr-2 text-agro-tierra"></i>Inorgánicos</span><span class="insignia insignia--inorganicos">15</span></a></li>
+              <li><a href="silvicultura.html"><span><i class="fa-solid fa-tree mr-2 text-agro-tierra"></i>Silvicultura</span><span class="insignia insignia--silvicultura">9</span></a></li>
+            </ul>
+          </section>
+
+          <section class="widget text-center bg-agro-oscuro text-white" style="background:linear-gradient(160deg,#1b4d2b,#2f7d32)">
+            <i class="fa-solid fa-headset text-4xl text-agro-trigo mb-3 animate-flotar inline-block" aria-hidden="true"></i>
+            <h2 class="font-titulo text-xl text-white mt-0">¿Necesitas asesoría?</h2>
+            <p class="text-sm opacity-90">Nuestros ingenieros agrónomos te ayudan a elegir el producto ideal para tu cultivo.</p>
+            <a href="https://wa.me/51959123456" target="_blank" rel="noopener" class="btn-agro btn-agro--trigo mt-2"><i class="fa-brands fa-whatsapp"></i> Escríbenos</a>
+          </section>
+
+          <section class="widget">
+            <h2 class="widget__titulo">Enlaces de interés</h2>
+            <ul>
+              <li><a href="https://www.gob.pe/senasa" target="_blank" rel="noopener">SENASA Perú <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a></li>
+              <li><a href="https://www.gob.pe/inia" target="_blank" rel="noopener">INIA - Innovación Agraria <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a></li>
+              <li><a href="https://www.gob.pe/serfor" target="_blank" rel="noopener">SERFOR - Forestal <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a></li>
+              <li><a href="https://www.fao.org/home/es" target="_blank" rel="noopener">FAO <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a></li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Pie de página ===== -->
+  <footer class="pie">
+    <div class="contenedor grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <section>
+        <a class="logo mb-4" href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" class="shrink-0">
+            <circle cx="32" cy="32" r="30" fill="#e9c46a" stroke="#1b4d2b" stroke-width="3"/>
+            <path d="M8 44 L26 18 L32 24 L36 20 L56 44 Z" fill="#8b5e34"/>
+            <path d="M22 24 L26 18 L32 24 L36 20 L40 25 L35 27 L31 25 L27 28 Z" fill="#ffffff"/>
+            <path d="M4 44 Q32 36 60 44 L60 50 Q32 42 4 50 Z" fill="#2f7d32"/>
+            <path d="M5 50 Q32 43 59 50 A30 30 0 0 1 5 50 Z" fill="#1b4d2b"/>
+            <path d="M40 40 C40 28 48 22 58 20 C58 32 52 40 40 40 Z" fill="#2f7d32" stroke="#faf7f0" stroke-width="1.5"/>
+          </svg>
+          <span class="logo__texto text-white" style="color:#fff">VerdeAndes <small style="color:var(--trigo)">AGRO S.A.C.</small></span>
+        </a>
+        <p>Proveemos abonos, semillas certificadas, insumos orgánicos e inorgánicos y plantones forestales para el agro del sur del Perú desde 2012.</p>
+        <div class="redes mt-4" aria-label="Redes sociales">
+          <a class="facebook" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="instagram" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="youtube" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a class="tiktok" href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a class="linkedin" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </section>
+
+      <nav aria-label="Enlaces del pie">
+        <h3>Enlaces rápidos</h3>
+        <ul>
+          <li><a href="nosotros.html"><i class="fa-solid fa-angle-right mr-2"></i>Quiénes somos</a></li>
+          <li><a href="servicios.html"><i class="fa-solid fa-angle-right mr-2"></i>Servicios</a></li>
+          <li><a href="catalogo.html"><i class="fa-solid fa-angle-right mr-2"></i>Catálogo y precios</a></li>
+          <li><a href="blog.html"><i class="fa-solid fa-angle-right mr-2"></i>Blog agrícola</a></li>
+          <li><a href="preguntas.html"><i class="fa-solid fa-angle-right mr-2"></i>Preguntas frecuentes</a></li>
+          <li><a href="clientes.html"><i class="fa-solid fa-angle-right mr-2"></i>Registro de clientes</a></li>
+        </ul>
+      </nav>
+
+      <section>
+        <h3>Contáctanos</h3>
+        <ul>
+          <li class="flex gap-3"><i class="fa-solid fa-location-dot mt-1 text-agro-trigo"></i><span>Av. Los Agricultores 450, Cerro Colorado, Arequipa</span></li>
+          <li class="flex gap-3"><i class="fa-solid fa-phone mt-1 text-agro-trigo"></i><a href="tel:+5154285430">(054) 285-430</a></li>
+          <li class="flex gap-3"><i class="fa-brands fa-whatsapp mt-1 text-agro-trigo"></i><a href="https://wa.me/51959123456" target="_blank" rel="noopener">+51 959 123 456</a></li>
+          <li class="flex gap-3"><i class="fa-solid fa-envelope mt-1 text-agro-trigo"></i><a href="mailto:ventas@verdeandesagro.pe">ventas@verdeandesagro.pe</a></li>
+        </ul>
+      </section>
+
+      <section id="boletin-ok">
+        <h3>Boletín agrícola</h3>
+        <p>Recibe consejos de cultivo, alertas climáticas y ofertas exclusivas.</p>
+        <form class="flex mt-3 rounded-full overflow-hidden bg-white/10 focus-within:ring-2 focus-within:ring-agro-trigo" action="#boletin-ok" method="get">
+          <label for="boletin-correo" class="visually-hidden">Correo electrónico</label>
+          <input id="boletin-correo" name="suscripcion" type="email" required placeholder="tu@correo.com" autocomplete="email" class="flex-1 min-w-0 bg-transparent px-4 py-3 text-white placeholder:text-white/60 outline-none" style="border:0">
+          <button type="submit" class="px-5 bg-agro-trigo text-agro-carbon font-bold transition-colors hover:bg-white cursor-pointer" style="border:0" aria-label="Suscribirme"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+        <h3 class="mt-6">Instituciones aliadas</h3>
+        <ul class="flex flex-wrap gap-x-4">
+          <li><a href="https://www.gob.pe/midagri" target="_blank" rel="noopener">MIDAGRI</a></li>
+          <li><a href="https://www.gob.pe/senasa" target="_blank" rel="noopener">SENASA</a></li>
+          <li><a href="https://www.gob.pe/serfor" target="_blank" rel="noopener">SERFOR</a></li>
+          <li><a href="https://www.gob.pe/inia" target="_blank" rel="noopener">INIA</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="pie__inferior">
+      <div class="contenedor flex flex-col md:flex-row items-center justify-between gap-3 py-5 text-center">
+        <p class="m-0">&copy; 2026 VerdeAndes Agro S.A.C. &mdash; RUC 20601234567. Todos los derechos reservados.</p>
+        <a href="reclamos.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/30 hover:border-agro-trigo transition-colors">
+          <i class="fa-solid fa-book-open"></i> Libro de Reclamaciones
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botones flotantes (100 % HTML + CSS) -->
+  <a class="whatsapp-flotante animate-latido" href="https://wa.me/51959123456" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  <a class="volver-arriba visible" href="#inicio" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></a>
+</body>
+</html>

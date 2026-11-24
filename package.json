@@ -1,0 +1,23 @@
+{
+  "name": "verdeandes-agro",
+  "version": "1.0.0",
+  "description": "Trabajo Final - Grupo 06: Agricultura (Abonos, semillas, materiales orgánicos, inorgánicos y silvicultura) con LESS, SASS y Tailwind CSS",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build:less": "lessc less/estilos.less css/estilos-less.css",
+    "build:sass": "sass --no-source-map scss/estilos.scss css/estilos-sass.css",
+    "build": "npm run build:less && npm run build:sass"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "less": "^4.9.1",
+    "sass": "^1.108.2",
+    "tailwindcss": "^3.4.19"
+  }
+}

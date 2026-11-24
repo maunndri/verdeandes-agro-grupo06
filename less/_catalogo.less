@@ -1,0 +1,94 @@
+// =============================================================
+//  VerdeAndes Agro - Preprocesador LESS
+//  Archivo: _catalogo.less
+//  Estilos del catálogo: filtros 100 % CSS (:checked + :has),
+//  ficha técnica y barras de nutrientes N-P-K animadas en CSS
+// =============================================================
+
+.filtros-catalogo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  justify-content: center;
+
+  label {
+    padding: .55rem 1.25rem;
+    border-radius: @radio-pill;
+    border: 2px solid @verde;
+    background: transparent;
+    color: @verde-oscuro;
+    font-weight: 600;
+    font-size: .92rem;
+    cursor: pointer;
+    user-select: none;
+    .transicion();
+    &:hover {
+      background: fade(@verde, 12%);
+      transform: translate3d(0, -2px, 0);
+    }
+  }
+}
+
+// Radios ocultos para filtrado 100 % CSS (sin JavaScript)
+.radio-filtro {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#f-todos:checked ~ .barra-filtros label[for="f-todos"],
+#f-abonos:checked ~ .barra-filtros label[for="f-abonos"],
+#f-semillas:checked ~ .barra-filtros label[for="f-semillas"],
+#f-organicos:checked ~ .barra-filtros label[for="f-organicos"],
+#f-inorganicos:checked ~ .barra-filtros label[for="f-inorganicos"],
+#f-silvicultura:checked ~ .barra-filtros label[for="f-silvicultura"] {
+  background: @verde;
+  color: @blanco;
+  box-shadow: 0 6px 16px fade(@verde, 35%);
+}
+
+// Filtrado puro CSS de filas de la tabla por categoría
+#f-abonos:checked ~ .tabla-contenedor tbody tr:not([data-categoria="abonos"]),
+#f-semillas:checked ~ .tabla-contenedor tbody tr:not([data-categoria="semillas"]),
+#f-organicos:checked ~ .tabla-contenedor tbody tr:not([data-categoria="organicos"]),
+#f-inorganicos:checked ~ .tabla-contenedor tbody tr:not([data-categoria="inorganicos"]),
+#f-silvicultura:checked ~ .tabla-contenedor tbody tr:not([data-categoria="silvicultura"]) {
+  display: none;
+}
+
+.ficha-tecnica {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+
+  &__item {
+    background: @crema;
+    border-left: 4px solid @tierra;
+    border-radius: (@radio / 2);
+    padding: .9rem 1rem;
+    strong { display: block; color: @tierra; font-size: .8rem; text-transform: uppercase; }
+    span   { font-size: 1.05rem; font-weight: 600; color: @carbon; }
+  }
+}
+
+// Escala de nutrientes N-P-K animada 100 % con CSS
+@keyframes llenar-barra {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@barra-alto: 10px;
+.barra-nutriente {
+  height: @barra-alto;
+  border-radius: (@barra-alto / 2);
+  background: fade(@verde, 15%);
+  overflow: hidden;
+  span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    .degradado(@verde, @trigo, 90deg);
+    transform-origin: left center;
+    animation: llenar-barra 1.1s @curva-fluida both;
+  }
+}

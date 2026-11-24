@@ -1,0 +1,77 @@
+// =============================================================
+//  VerdeAndes Agro - Preprocesador LESS
+//  Archivo: _mixins.less
+//  Descripción: Mixins reutilizables, guards y funciones de color
+// =============================================================
+
+// Curva de aceleración suave (quintic ease-out a 60fps)
+@curva-fluida: cubic-bezier(0.22, 1, 0.36, 1);
+
+// Mixin con parámetros y valores por defecto
+.sombra(@nivel: 1) when (@nivel = 1) {
+  box-shadow: 0 6px 20px -4px rgba(27, 77, 43, .08), 0 2px 6px -1px rgba(0, 0, 0, .04);
+}
+.sombra(@nivel: 1) when (@nivel = 2) {
+  box-shadow: 0 22px 44px -12px rgba(27, 77, 43, .22), 0 10px 20px -8px rgba(0, 0, 0, .08);
+}
+
+// Mixin de transición fluida acelerada por GPU
+.transicion(@propiedad: all; @tiempo: .42s) {
+  transition: @propiedad @tiempo @curva-fluida;
+}
+
+.transicion-tarjeta() {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform, box-shadow;
+  transition:
+    transform .45s @curva-fluida,
+    box-shadow .45s @curva-fluida,
+    border-color .45s @curva-fluida,
+    background-color .35s @curva-fluida;
+}
+
+// Centrado con flexbox
+.flex-centro(@direccion: row) {
+  display: flex;
+  flex-direction: @direccion;
+  align-items: center;
+  justify-content: center;
+}
+
+// Guard: elige color de texto según la luminosidad del fondo
+.texto-contraste(@fondo) when (lightness(@fondo) >= 60%) { color: @carbon; }
+.texto-contraste(@fondo) when (lightness(@fondo) < 60%)  { color: @blanco; }
+
+// Generador de variantes de botón (usa funciones darken / fade)
+.boton-variante(@color) {
+  background-color: @color;
+  border: 2px solid @color;
+  .texto-contraste(@color);
+  &:hover,
+  &:focus-visible {
+    background-color: darken(@color, 7%);
+    border-color: darken(@color, 7%);
+    box-shadow: 0 10px 24px -4px fade(@color, 45%);
+    transform: translate3d(0, -2px, 0);
+  }
+  &:active {
+    transform: translate3d(0, 0, 0);
+  }
+  &.btn-agro--contorno {
+    background-color: transparent;
+    color: @color;
+    &:hover { background-color: @color; .texto-contraste(@color); }
+  }
+}
+
+// Degradado lineal reutilizable
+.degradado(@desde; @hasta; @angulo: 135deg) {
+  background-color: @desde; // respaldo
+  background-image: linear-gradient(@angulo, @desde, @hasta);
+}
+
+// Media query como mixin
+.responsivo(@punto; @reglas) {
+  @media @{punto} { @reglas(); }
+}

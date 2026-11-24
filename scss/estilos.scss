@@ -1,0 +1,16 @@
+// =============================================================
+//  VerdeAndes Agro - Preprocesador SASS (SCSS)
+//  Archivo principal: estilos.scss
+//  Compilación:  npm run build:sass
+//  Salida:       css/estilos-sass.css
+// =============================================================
+
+@use "variables";
+@use "funciones";
+@use "mixins";
+@use "banners";
+@use "blog";
+@use "galeria";
+@use "formularios";
+@use "componentes";
+@use "animaciones";
